@@ -1,0 +1,52 @@
+# General Node.js
+node_modules
+package-lock.json
+npm-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Environment Variables
+.env
+.env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+
+# Build Output
+build
+dist
+out
+
+# Logs
+logs
+*.log
+debug.log
+
+# IDE Specific
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Optional - if using Docker
+docker-compose.override.yml
+docker-compose.prod.yml
+
+# Optional - if using testing frameworks
+coverage
+junit.xml
+
+# Optional - if using specific tools
+.nyc_output
+
+# Custom - Add any other files or directories you want to ignore
+# example: secret-keys.txt
