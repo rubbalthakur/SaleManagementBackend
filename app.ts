@@ -13,6 +13,7 @@ import leadSourceRoutes from "./routes/leadSource.route";
 import leadRoutes from "./routes/lead.route";
 import leadMessageRoutes from "./routes/leadMessage.route";
 import clientRoutes from "./routes/client.route";
+import proposalRoutes from "./routes/proposal.route";
 import { authenticateToken } from "./middlewares/auth.middleware";
 import { errorHandler } from "./middlewares/error.middleware";
 
@@ -34,6 +35,7 @@ app.use("/api/member", authenticateToken, leadSourceRoutes);
 app.use("/api/member", authenticateToken, leadRoutes);
 app.use("/api/member", authenticateToken, leadMessageRoutes);
 app.use("/api/member", authenticateToken, clientRoutes);
+app.use("/api/member", authenticateToken, proposalRoutes);
 
 app.use("/", (req, res) => {
   res.status(404).json({ message: "Not found" });
