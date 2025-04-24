@@ -18,11 +18,17 @@ export class ProposalRepository {
     return await Proposal.findAll({ where: { clientId } });
   }
   async findByOrganisation(userId: number) {
-    return await OrganisationProfile.findOne({
+    return await UserOrganisation.findOne({
       where: { userId },
       include: [
         {
-          model: Proposal,
+          model: OrganisationProfile,
+          attributes: ["id"],
+          include: [
+            {
+              model: Proposal,
+            },
+          ],
         },
       ],
     });

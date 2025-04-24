@@ -1,6 +1,6 @@
 import { body } from "express-validator";
 export const validateClient = [
-  body("emailId").isEmail().notEmpty(),
+  body("emailId").isEmail().notEmpty().withMessage("Client email is required"),
   body("firstName")
     .isString()
     .notEmpty()
