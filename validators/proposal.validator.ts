@@ -5,3 +5,7 @@ export const validateProposal = [
   body("cost").notEmpty().withMessage("Cost cannot be empty"),
   body("status").isString().notEmpty().withMessage("status cannot be empty"),
 ];
+
+export const validateUpdateProposal = [
+  body("id").notEmpty().withMessage("id is required"),
+];

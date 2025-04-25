@@ -5,7 +5,10 @@ import {
   addProposal,
   updateProposal,
 } from "../controller/proposal.controller";
-import { validateProposal } from "../validators/proposal.validator";
+import {
+  validateProposal,
+  validateUpdateProposal,
+} from "../validators/proposal.validator";
 import { handleValidationErrors } from "../middlewares/validation.middleware";
 
 const router = Router();
@@ -15,7 +18,12 @@ router.post(
   handleValidationErrors,
   addProposal
 );
-router.post("/updateProposal", updateProposal);
+router.post(
+  "/updateProposal",
+  validateUpdateProposal,
+  handleValidationErrors,
+  updateProposal
+);
 router.post("/getAllProposalForOrganisation", getAllProposalByOrganisation);
 router.post("/getAllProposalForUser", getAllProposalByUser);
 export default router;

@@ -4,6 +4,7 @@ import {
   UserOrganisation,
   OrganisationProfile,
   Lead,
+  Client,
 } from "../models";
 
 export class ProposalRepository {
@@ -27,6 +28,7 @@ export class ProposalRepository {
           include: [
             {
               model: Proposal,
+              include: [{ model: Client }, { model: Lead }],
             },
           ],
         },
@@ -44,10 +46,11 @@ export class ProposalRepository {
           include: [
             {
               model: Lead,
-              attributes: ["id"],
+              attributes: ["id", "description"],
               include: [
                 {
                   model: Proposal,
+                  include: [{ model: Client }],
                 },
               ],
             },

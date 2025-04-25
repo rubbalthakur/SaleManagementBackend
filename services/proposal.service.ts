@@ -25,6 +25,19 @@ export class ProposalService {
   async create(proposalData: Partial<Proposal>): Promise<Proposal> {
     return await this.proposalRepository.create(proposalData);
   }
+  async update(proposalData: Partial<Proposal>) {
+    return await this.proposalRepository.update(proposalData);
+  }
+  async updateProposal(proposalData: Partial<Proposal>) {
+    if (!proposalData.id) {
+      throw new Error("Proposal id is required");
+    }
+    const proposal = this.getById(proposalData.id);
+    if (!proposal) {
+      throw new Error("Proposal with this id not found");
+    }
+    return await this.update(proposalData);
+  }
 
   async createProposal(proposalData) {
     if (!proposalData.leadId) {

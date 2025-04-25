@@ -41,13 +41,15 @@ export const addProposal = async (req, res, next) => {
 
 export const updateProposal = async (req, res, next) => {
   try {
-    const { clientId, leadId, cost, status } = req.body;
-    const proposal = await proposalService.createProposal({
+    const { id, clientId, leadId, cost, status } = req.body;
+    const proposal = await proposalService.updateProposal({
+      id,
       clientId,
       leadId,
       cost,
       status,
     });
+    return res.json(proposal);
   } catch (err) {
     next(err);
   }
