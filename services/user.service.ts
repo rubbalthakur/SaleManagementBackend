@@ -32,10 +32,6 @@ export class UserService {
     if (userData.id === undefined) {
       throw new Error("User id required for update");
     }
-    const user = this.getUserById(userData.id);
-    if (!user) {
-      throw new Error("User not found");
-    }
     return this.update(userData);
   }
 

@@ -4,6 +4,6 @@ import { connectDb } from "./models";
 const PORT = process.env.PORT || 3001;
 connectDb().then(() => {
   app.listen(PORT, () => {
-    console.log("server is running on port", 3001);
+    console.log("server is running on port", PORT);
   });
 });

@@ -4,6 +4,8 @@ import {
   LeadType,
   OrganisationProfile,
   User,
+  Proposal,
+  Client,
 } from "../models";
 
 export class LeadRepository {
@@ -27,6 +29,7 @@ export class LeadRepository {
           model: LeadSource,
           attributes: ["leadSourceName"],
         },
+        { model: Proposal, include: [{ model: Client }] },
       ],
     });
   }
@@ -59,6 +62,7 @@ export class LeadRepository {
               model: LeadSource,
               attributes: ["leadSourceName"],
             },
+            { model: Proposal },
           ],
         },
       ],
