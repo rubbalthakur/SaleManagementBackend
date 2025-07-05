@@ -1,12 +1,12 @@
 {
   "name": "backend2",
   "version": "1.0.0",
-  "main": "server.ts",
+  "main": "dist/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node dist/server.js",
-    "dev": "ts-node-dev --respawn --transpile-only server.ts",
-    "build": "tsc"
+    "dev": "nodemon --exec ts-node server.ts",
+    "build": "tsc", 
+    "start": "node dist/server.js"
   },
   "author": "",
   "license": "ISC",
