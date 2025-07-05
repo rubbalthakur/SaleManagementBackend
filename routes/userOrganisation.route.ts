@@ -3,6 +3,7 @@ import {
   getUserOrganisationByUserId,
   getAllUserOrganisationForOrganisation,
   updateUserOrganisation,
+  inviteUser
 } from "../controller/userOrganisation.controller";
 import { validateUpdateUserOrganisation } from "../validators/userOrganisation.validator";
 import { handleValidationErrors } from "../middlewares/validation.middleware";
@@ -19,5 +20,7 @@ router.post(
   handleValidationErrors,
   updateUserOrganisation
 );
+
+router.post("/inviteUser", inviteUser)
 
 export default router;

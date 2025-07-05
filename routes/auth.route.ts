@@ -10,6 +10,7 @@ import {
   signup,
   login,
   createUserOrganisation,
+  testLogin
 } from "../controller/auth.controller";
 
 const router = Router();
@@ -17,6 +18,7 @@ const router = Router();
 router.post("/register", validateRegisterUser, handleValidationErrors, signup);
 
 router.post("/signin", validateLoginUser, handleValidationErrors, login);
+router.post("/testsignin", testLogin);
 
 router.post(
   "/addUserOrganisation",

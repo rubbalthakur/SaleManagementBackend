@@ -43,6 +43,23 @@ export const login = async (req: any, res: any, next: any) => {
     next(err);
   }
 };
+//-------------------------------------login---------------------------
+export const testLogin = async (req: any, res: any, next: any) => {
+  try {
+    const emailId = "abc@gmail.com";
+    const password = "abc@123";
+    const user = await userService.getUserByEmail(emailId);
+    if (!user || !(await bcrypt.compare(password, user.password))) {
+      return res.status(404).json({ message: "Invalid Credentials" });
+    }
+    const token = jwt.sign({ id: user.id, email: user.emailId }, SECRET_KEY, {
+      expiresIn: "1h",
+    });
+    return res.json({ token });
+  } catch (err) {
+    next(err);
+  }
+};
 
 //------------------------------signup using referral---------------------
 export const createUserOrganisation = async (req: any, res: any, next: any) => {

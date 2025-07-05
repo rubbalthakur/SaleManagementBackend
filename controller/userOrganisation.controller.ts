@@ -37,3 +37,14 @@ export const updateUserOrganisation = async (req: any, res: any, next: any) => {
     next(err);
   }
 };
+
+export const inviteUser = async (req: any, res: any, next: any) => {
+  try {
+    const userId = req.user.id;
+    const { roleId } = req.body;
+    const invitationLink = `http://localhost:3000/addUserOrganisation?referralId=${userId}&roleId=${roleId}`;
+    return res.json({ message: "data Updated successfully", invitationLink });
+  } catch (err) {
+    next(err);
+  }
+}
