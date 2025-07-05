@@ -2,7 +2,7 @@ import { LeadTypeService } from "../services/leadType.service";
 
 const leadTypeService = new LeadTypeService();
 
-export const addLeadType = async (req, res, next) => {
+export const addLeadType = async (req: any, res: any, next: any) => {
   try {
     const userId = req.user.id;
     const { leadTypeName } = req.body;
@@ -13,7 +13,7 @@ export const addLeadType = async (req, res, next) => {
   }
 };
 
-export const updateLeadType = async (req, res, next) => {
+export const updateLeadType = async (req: any, res: any, next: any) => {
   try {
     const { id, leadTypeName } = req.body;
     const leadType = await leadTypeService.updateLeadType({ id, leadTypeName });
@@ -23,7 +23,7 @@ export const updateLeadType = async (req, res, next) => {
   }
 };
 
-export const getAllLeadTypeByOrganisation = async (req, res, next) => {
+export const getAllLeadTypeByOrganisation = async (req: any, res: any, next: any) => {
   try {
     const userId = req.user.id;
     const organisationProfileWithLeadType =

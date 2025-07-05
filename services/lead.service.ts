@@ -36,7 +36,7 @@ export class LeadService {
     return await this.update(leadData);
   }
 
-  async createLead(leadData) {
+  async createLead(leadData: any) {
     const {
       userId,
       employeeId,

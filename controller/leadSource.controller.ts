@@ -2,7 +2,7 @@ import { LeadSourceService } from "../services/leadSource.service";
 
 const leadSourceService = new LeadSourceService();
 
-export const addLeadSource = async (req, res, next) => {
+export const addLeadSource = async (req: any, res: any, next: any) => {
   try {
     const userId = req.user.id;
     const { leadSourceName } = req.body;
@@ -19,7 +19,7 @@ export const addLeadSource = async (req, res, next) => {
   }
 };
 
-export const updateLeadSource = async (req, res, next) => {
+export const updateLeadSource = async (req: any, res: any, next: any) => {
   try {
     const { id, leadSourceName } = req.body;
     const leadSource = await leadSourceService.updateLeadSource({
@@ -35,7 +35,7 @@ export const updateLeadSource = async (req, res, next) => {
   }
 };
 
-export const getAllLeadSourceByOrganisation = async (req, res, next) => {
+export const getAllLeadSourceByOrganisation = async (req: any, res: any, next: any) => {
   try {
     const userId = req.user.id;
     const organisationProfileWithLeadSource =

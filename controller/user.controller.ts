@@ -1,10 +1,10 @@
-import bcrypt from "bcrypt";
+const  bcrypt = require("bcrypt");
 import { UserService } from "../services/user.service";
 
 const userService = new UserService();
 
 //---------------------------update password------------------------
-export const updatePassword = async (req, res, next) => {
+export const updatePassword = async (req: any, res: any, next: any) => {
   try {
     const { id } = req.user;
     const { oldPassword, password } = req.body;
@@ -23,7 +23,7 @@ export const updatePassword = async (req, res, next) => {
 };
 
 //-----------------------get profile------------------------
-export const getProfile = async (req, res, next) => {
+export const getProfile = async (req: any, res: any, next: any) => {
   try {
     const { id } = req.user;
     const user = await userService.getUserById(id);
@@ -46,7 +46,7 @@ export const getProfile = async (req, res, next) => {
 };
 
 //---------------------------update profile------------------------------
-export const updateProfile = async (req, res, next) => {
+export const updateProfile = async (req: any, res: any, next: any) => {
   try {
     const { id } = req.user;
     const { firstName, lastName, country, state, city, contactNumber } =

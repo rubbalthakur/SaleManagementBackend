@@ -2,7 +2,7 @@ import { OrganisationProfileService } from "../services/organisationProfile.serv
 
 const organisationProfileService = new OrganisationProfileService();
 
-export const getOrganisationProfile = async (req, res, next) => {
+export const getOrganisationProfile = async (req: any, res: any, next: any) => {
   try {
     const userId = req.user.id;
     const organisationProfile =
@@ -13,7 +13,7 @@ export const getOrganisationProfile = async (req, res, next) => {
   }
 };
 
-export const createOrUpdateOrganisationProfile = async (req, res, next) => {
+export const createOrUpdateOrganisationProfile = async (req: any, res: any, next: any) => {
   try {
     const userId = req.user.id;
     const { name, country, state, city } = req.body;

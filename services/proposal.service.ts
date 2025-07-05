@@ -39,7 +39,7 @@ export class ProposalService {
     return await this.update(proposalData);
   }
 
-  async createProposal(proposalData) {
+  async createProposal(proposalData: any) {
     if (!proposalData.leadId) {
       throw new Error("leadId is required");
     }

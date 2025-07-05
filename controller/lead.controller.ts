@@ -2,7 +2,7 @@ import { LeadService } from "../services/lead.service";
 
 const leadService = new LeadService();
 
-export const createLead = async (req, res, next) => {
+export const createLead = async (req: any, res: any, next: any) => {
   try {
     const userId = req.user.id;
     const { employeeId, leadTypeId, leadSourceId, status, description } =
@@ -21,7 +21,7 @@ export const createLead = async (req, res, next) => {
   }
 };
 
-export const updateLead = async (req, res, next) => {
+export const updateLead = async (req: any, res: any, next: any) => {
   try {
     const { id, employeeId, leadTypeId, leadSourceId, status, description } =
       req.body;
@@ -39,7 +39,7 @@ export const updateLead = async (req, res, next) => {
   }
 };
 
-export const getLeadByUserId = async (req, res, next) => {
+export const getLeadByUserId = async (req: any, res: any, next: any) => {
   try {
     const userId = req.user.id;
     const lead = await leadService.getLeadByUserId(userId);
@@ -49,7 +49,7 @@ export const getLeadByUserId = async (req, res, next) => {
   }
 };
 
-export const getAllLeadsByOrganisaion = async (req, res, next) => {
+export const getAllLeadsByOrganisaion = async (req: any, res: any, next: any) => {
   try {
     const userId = req.user.id;
     const leads = await leadService.getLeadsByOrganisation(userId);

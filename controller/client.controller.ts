@@ -2,7 +2,7 @@ import { ClientService } from "../services/client.service";
 
 const clientService = new ClientService();
 
-export const addClient = async (req, res, next) => {
+export const addClient = async (req: any, res: any, next: any) => {
   try {
     const userId = req.user.id;
     const { firstName, lastName, emailId, city, state, country, contact } =
@@ -23,7 +23,7 @@ export const addClient = async (req, res, next) => {
   }
 };
 
-export const getClientById = async (req, res, next) => {
+export const getClientById = async (req: any, res: any, next: any) => {
   try {
     const id = req.body;
     const client = await clientService.getById(id);
@@ -36,7 +36,7 @@ export const getClientById = async (req, res, next) => {
   }
 };
 
-export const getAllClientsByOrganisation = async (req, res, next) => {
+export const getAllClientsByOrganisation = async (req: any, res: any, next: any) => {
   try {
     const userId = req.user.id;
     const clients = await clientService.getAllByOrganisation(userId);
@@ -46,7 +46,7 @@ export const getAllClientsByOrganisation = async (req, res, next) => {
   }
 };
 
-export const updateClient = async (req, res, next) => {
+export const updateClient = async (req: any, res: any, next: any) => {
   try {
     const { id, emailId, firstName, lastName, city, state, country, contact } =
       req.body;

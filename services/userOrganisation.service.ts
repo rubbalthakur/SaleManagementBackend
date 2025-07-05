@@ -28,7 +28,7 @@ export class UserOrganisationService {
     return await this.userOrganisationRepository.update(userOrganisationData);
   }
   async createUserOrganisation(
-    userOrganisationData
+    userOrganisationData:any
   ): Promise<UserOrganisation> {
     const organisationProfile =
       await this.organisationProfileService.getOrganisationProfileByUserId(

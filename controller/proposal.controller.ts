@@ -2,7 +2,7 @@ import { ProposalService } from "../services/proposal.service";
 
 const proposalService = new ProposalService();
 
-export const getAllProposalByOrganisation = async (req, res, next) => {
+export const getAllProposalByOrganisation = async (req: any, res: any, next: any) => {
   try {
     const userId = req.user.id;
     const proposals = await proposalService.getAllByOrganisation(userId);
@@ -12,7 +12,7 @@ export const getAllProposalByOrganisation = async (req, res, next) => {
   }
 };
 
-export const getAllProposalByUser = async (req, res, next) => {
+export const getAllProposalByUser = async (req: any, res: any, next: any) => {
   try {
     const userId = req.user.id;
     const proposals = await proposalService.getAllByUser(userId);
@@ -22,7 +22,7 @@ export const getAllProposalByUser = async (req, res, next) => {
   }
 };
 
-export const addProposal = async (req, res, next) => {
+export const addProposal = async (req: any, res: any, next: any) => {
   try {
     const userId = req.user.id;
     const { clientId, leadId, cost, status } = req.body;
@@ -39,7 +39,7 @@ export const addProposal = async (req, res, next) => {
   }
 };
 
-export const updateProposal = async (req, res, next) => {
+export const updateProposal = async (req: any, res: any, next: any) => {
   try {
     const { id, clientId, leadId, cost, status } = req.body;
     const proposal = await proposalService.updateProposal({

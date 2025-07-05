@@ -16,8 +16,31 @@ const connectDb = async () => {
     await sequelize.authenticate();
     console.log("Database connected");
     await sequelize.sync();
+    const defaultRoles = [
+      { id: 1, role: 'admin' },
+      { id: 2, role: 'manager' },
+      { id: 3, role: 'employee' },
+    ];
+
+    for (const defaultRole of defaultRoles) {
+      const [roleInstance, created] = await Role.findOrCreate({
+        where: { id: defaultRole.id },
+        defaults: {
+          id: defaultRole.id,
+          role: defaultRole.role,
+        }
+      });
+
+      if (created) {
+        console.log(`Role '${defaultRole.role}' created successfully.`);
+      } else {
+        console.log(`Role '${defaultRole.role}' already exists.`);
+      }
+    }
+
   } catch (error) {
     console.error("Database connection failed", error);
+    throw error;
   }
 };
 

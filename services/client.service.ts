@@ -22,7 +22,7 @@ export class ClientService {
     return await this.clientRepository.update(clientData);
   }
 
-  async addClient(clientData) {
+  async addClient(clientData:any) {
     const userOrganisation = await this.userOrganisationRepository.findByUserId(
       clientData.userId
     );

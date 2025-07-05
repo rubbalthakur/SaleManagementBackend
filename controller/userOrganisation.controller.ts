@@ -2,7 +2,7 @@ import { UserOrganisationService } from "../services/userOrganisation.service";
 
 const userOrganisationService = new UserOrganisationService();
 
-export const getUserOrganisationByUserId = async (req, res, next) => {
+export const getUserOrganisationByUserId = async (req: any, res: any, next: any) => {
   try {
     const userId = req.user.id;
     const user = await userOrganisationService.getByUserId(userId);
@@ -12,7 +12,7 @@ export const getUserOrganisationByUserId = async (req, res, next) => {
   }
 };
 
-export const getAllUserOrganisationForOrganisation = async (req, res, next) => {
+export const getAllUserOrganisationForOrganisation = async (req: any, res: any, next: any) => {
   try {
     const userId = req.user.id;
     const userData = await userOrganisationService.getAllUserForOrganisation(
@@ -24,7 +24,7 @@ export const getAllUserOrganisationForOrganisation = async (req, res, next) => {
   }
 };
 
-export const updateUserOrganisation = async (req, res, next) => {
+export const updateUserOrganisation = async (req: any, res: any, next: any) => {
   try {
     const { userId, roleId } = req.body;
     const userOrganisation =

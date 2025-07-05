@@ -2,7 +2,7 @@ import { LeadMessageService } from "../services/leadMessage.service";
 
 const leadMessageService = new LeadMessageService();
 
-export const addLeadMessage = async (req, res, next) => {
+export const addLeadMessage = async (req: any, res: any, next: any) => {
   try {
     const userId = req.user.id;
     const { leadId, message } = req.body;
@@ -17,7 +17,7 @@ export const addLeadMessage = async (req, res, next) => {
   }
 };
 
-export const getAllLeadMessagesByLeadId = async (req, res, next) => {
+export const getAllLeadMessagesByLeadId = async (req: any, res: any, next: any) => {
   try {
     const { leadId } = req.body;
     const leadMessages = await leadMessageService.getByLeadId(leadId);

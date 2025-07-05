@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt";
+const bcrypt = require("bcrypt");
 import { UserService } from "../services/user.service";
 import { UserOrganisationService } from "../services/userOrganisation.service";
 
@@ -8,7 +8,7 @@ const userOrganisationService = new UserOrganisationService();
 const SECRET_KEY = process.env.JWT_SECRET || "abcdefghi";
 
 //--------------------------signup-----------------------
-export const signup = async (req, res, next) => {
+export const signup = async (req: any, res: any, next: any) => {
   try {
     const { emailId, password } = req.body;
     const user = await userService.signup({ emailId, password });
@@ -28,7 +28,7 @@ export const signup = async (req, res, next) => {
 };
 
 //-------------------------------------login---------------------------
-export const login = async (req, res, next) => {
+export const login = async (req: any, res: any, next: any) => {
   try {
     const { emailId, password } = req.body;
     const user = await userService.getUserByEmail(emailId);
@@ -45,7 +45,7 @@ export const login = async (req, res, next) => {
 };
 
 //------------------------------signup using referral---------------------
-export const createUserOrganisation = async (req, res, next) => {
+export const createUserOrganisation = async (req: any, res: any, next: any) => {
   try {
     const { referralId, roleId, emailId, password } = req.body;
     const userOrganisationProfile =
